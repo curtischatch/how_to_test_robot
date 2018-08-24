@@ -58,29 +58,34 @@ class TestRobot < MiniTest::Test
 
   def test_prioritize_tasks_with_empty_todo_list_returns_negative_one
 
-    validates :presence, true
-
     # act
+    exoected = -1
+    actual = @robot.prioritize_tasks
 
     # assert
+    assert_equal(expected_value,actual_value)
   end
 
   def test_prioritize_tasks_with_todos_returns_max_todo_value
-    skip
-    # arrange
 
+    # arrange
+    @robot.todos = [1, 2, 3]
     # act
+    expected = 3
+    actual = @robot.prioritize_tasks
 
     # assert
+    assert_equal(expected_value, actual_value)
   end
 
   def test_workday_on_day_off_returns_false
-    skip
     # arrange
-
+    @robot.day_off = 'Saturday'
     # act
-
+    expected = true
+    actual = @robot.workday?('Monday')
     # assert
+    assert_equal(expected_value,actual_value)
   end
 
   def test_workday_not_day_off_returns_true
